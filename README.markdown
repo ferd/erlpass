@@ -18,11 +18,15 @@ This library application depends on bcrypt (which in turn depends on crypto). Yo
     false
     4> erlpass:match("my voice is my password", Hash).
     true
-    5> erlpass:change("my voice", Hash, "new pass", 12).
+    5> erlpass:match(<<"my voice is my password">>, Hash).
+    true
+    6> erlpass:match([<<"my voice is my ">>, "password"], Hash).
+    true
+    7> erlpass:change("my voice", Hash, "new pass", 12).
     {error,bad_password}
-    6> erlpass:change("my voice is my password", Hash, "new pass", 12).
+    8> erlpass:change("my voice is my password", Hash, "new pass", 12).
     <<"$2a$12$5ps2emX.5CgNs3o1RS1mzu8gkF0G9X0j/tKneKPqJOid3YdA7HmaO">>
-    7> erlpass:change("my voice is my password", Hash, "new pass", 12).
+    9> erlpass:change("my voice is my password", Hash, "new pass", 12).
     <<"$2a$12$4b2p/Hc.PwrTYffQKRkLheLyu2bbNQbVsvN5Hd.00ei67lagutUyq">>
 
 The `hash(Pass)` function takes an optional workload factor argument that specifies how long it should take to run. The longer the work factor, the harder the brute force attack. The default work factor is 12.
