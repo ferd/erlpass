@@ -1,5 +1,7 @@
 # Erlpass #
 
+A library to handle password hashing and changing in a safe manner, independent from any kind of storage whatsoever. The library is a thin wrapper around the erlang-bcrypt library from smarkets, handling special cases such as unicode passwords, and forcing hashes in binary. Moreover, the library takes care of providing common operations such as matching passwords, changing the work factor of a hash, or changing a password as a whole.
+
 ## Build Instructions ##
 
 You need to have rebar installed. Call `rebar get-deps && rebar compile`.
