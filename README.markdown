@@ -2,7 +2,7 @@
 
 ## Build Instructions ##
 
-You need to have agner installed with a rebarized agner. Call `rebar get-deps && rebar compile`.
+You need to have rebar installed. Call `rebar get-deps && rebar compile`.
 
 ## How do I use this ##
 
