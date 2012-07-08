@@ -4,7 +4,7 @@ A library to handle password hashing and changing in a safe manner, independent 
 
 ## Build Instructions ##
 
-You need to have rebar installed. Call `rebar get-deps && rebar compile`.
+You need to have rebar installed. Call `./rebar get-deps && ./rebar compile`.
 
 ## How do I use this ##
 
