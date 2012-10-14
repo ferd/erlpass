@@ -3,5 +3,6 @@
   {vsn, "0.1.2"},
   {modules, [erlpass]},
   {applications, [bcrypt]},
+  {registered, []},
   {agner, [{requires, ["bcrypt","proper"]}]}
 ]}.
