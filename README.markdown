@@ -4,7 +4,7 @@ A library to handle password hashing and changing in a safe manner, independent 
 
 ## Build Instructions ##
 
-You need to have rebar installed. Call `./rebar get-deps && ./rebar compile`.
+Call `./rebar get-deps compile`.
 
 ## How do I use this ##
 
@@ -41,6 +41,8 @@ This library uses the erlang-bcrypt port from the Smarkets team to work in a saf
 
 ## Other Dependencies ##
 You will need to have PropEr to run the tests. It's a fantastic testing library.
+
+You can run the tests with `./rebar -C rebar.test.config get-deps compile && ./rebar eunit skip_deps=true`.
 
 ## Authors ##
 
