@@ -32,14 +32,13 @@ hash(Str, Factor) ->
     list_to_binary(Hash).
 
 %% @doc Compares a given password to a hash. Returns <code>true</code> if
-%% the password matches, and <code>false</code> otherwise.
+%% the password matches, and <code>false</code> otherwise. The comparison
+%% is done in constant time (based on the hash length)
 -spec match(password(), hash()) -> boolean().
 match(Pass, Hash) ->
     LHash = binary_to_list(Hash),
-    case bcrypt:hashpw(format_pass(Pass), LHash) of
-        {ok, LHash} -> true;
-        {ok, _} -> false
-    end.
+    {ok,ResHash} = bcrypt:hashpw(format_pass(Pass), LHash),
+    verify_in_constant_time(LHash,ResHash).
 
 %% @doc If a given {@link password(). password} matches a given
 %% {@link hash(). hash}, the password is re-hashed again using
@@ -76,3 +75,23 @@ format_pass(Str) when is_list(Str) ->
         Bin -> Bin
     end;
 format_pass(Bin) when is_binary(Bin) -> Bin.
+
+%% @doc Verifies two hashes for matching purpose, in constant time. That allows
+%% a safer verification as no attacker can use the time it takes to compare hash
+%% values to find an attack vector (past figuring out the complexity)
+verify_in_constant_time([X|RestX], [Y|RestY], Result) ->
+        verify_in_constant_time(RestX, RestY, (X bxor Y) bor Result);
+verify_in_constant_time([], [], Result) ->
+        Result == 0.
+
+verify_in_constant_time(<<X/binary>>, <<Y/binary>>) ->
+    verify_in_constant_time(binary_to_list(X), binary_to_list(Y));
+verify_in_constant_time(X, Y) when is_list(X) and is_list(Y) ->
+    case length(X) == length(Y) of
+        true ->
+            verify_in_constant_time(X, Y, 0);
+        false ->
+            false
+    end;
+verify_in_constant_time(_X, _Y) -> false.
+
