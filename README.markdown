@@ -2,9 +2,12 @@
 
 A library to handle password hashing and changing in a safe manner, independent from any kind of storage whatsoever. The library is a thin wrapper around the erlang-bcrypt library from opscode, handling special cases such as unicode passwords, and forcing hashes in binary. Moreover, the library takes care of providing common operations such as matching passwords, changing the work factor of a hash, or changing a password as a whole.
 
+## Current Status ##
+[![Build Status](https://travis-ci.org/ferd/erlpass.png)](https://travis-ci.org/ferd/erlpass)
+
 ## Build Instructions ##
 
-If you have Rebar installed on your system, this installed version will be used instead of `./rebar`. Call `make compile`.
+Call `make compile`. If you have Rebar installed on your system, the installed version will be used instead of `./rebar`.
 
 ## How do I use this ##
 
