@@ -1,10 +1,13 @@
 # Erlpass #
 
-A library to handle password hashing and changing in a safe manner, independent from any kind of storage whatsoever. The library is a thin wrapper around the erlang-bcrypt library from smarkets, handling special cases such as unicode passwords, and forcing hashes in binary. Moreover, the library takes care of providing common operations such as matching passwords, changing the work factor of a hash, or changing a password as a whole.
+A library to handle password hashing and changing in a safe manner, independent from any kind of storage whatsoever. The library is a thin wrapper around the erlang-bcrypt library from opscode, handling special cases such as unicode passwords, and forcing hashes in binary. Moreover, the library takes care of providing common operations such as matching passwords, changing the work factor of a hash, or changing a password as a whole.
+
+## Current Status ##
+[![Build Status](https://travis-ci.org/ferd/erlpass.png)](https://travis-ci.org/ferd/erlpass)
 
 ## Build Instructions ##
 
-Call `./rebar get-deps compile`.
+Call `make compile`. If you have Rebar installed on your system, the installed version will be used instead of `./rebar`.
 
 ## How do I use this ##
 
@@ -42,7 +45,7 @@ This library uses the erlang-bcrypt port from the Smarkets team to work in a saf
 ## Other Dependencies ##
 You will need to have PropEr to run the tests. It's a fantastic testing library.
 
-You can run the tests with `./rebar -C rebar.test.config get-deps compile && ./rebar eunit skip_deps=true`.
+You can run the tests with `make tests`.
 
 ## Authors ##
 
