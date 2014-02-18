@@ -1,4 +1,5 @@
 *.swp
+*.swo
 *.beam
 *.dump
 deps/*
