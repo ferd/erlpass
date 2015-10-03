@@ -5,8 +5,8 @@
 -export([hash/1, hash/2, match/2, change/3, change/4]).
 -define(DEFAULT_WORK_FACTOR, 12).
 
-%% @type password() = binary() | list() | iolist(). A password, supports valid unicode.
--type password() :: binary() | list() | iolist().
+%% @type password() = iodata(). A password, supports valid unicode.
+-type password() :: iodata().
 %% @type work_factor() = 4..31. Work factor of the bcrypt algorithm
 -type work_factor() :: 4..31.
 %% @type hash() = binary(). The hashed password with a given work factor.
@@ -67,7 +67,7 @@ change(OldPass, Hash, NewPass, Factor) ->
 %% We have to support unicode
 %% @doc transforms a given {@link password(). password} in a safe binary format
 %% that can be understood by the bcrypt library.
--spec format_pass(iolist()) -> binary().
+-spec format_pass(iodata()) -> binary().
 format_pass(Str) when is_list(Str) ->
     case unicode:characters_to_binary(Str) of
         {error, _Good, _Bad} -> list_to_binary(Str);
