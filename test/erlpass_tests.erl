@@ -2,7 +2,7 @@
 -include_lib("proper/include/proper.hrl").
 -include_lib("eunit/include/eunit.hrl").
 -define(PROPMOD, proper).
--define(PROP(A), {timeout, 45, ?_assert(?PROPMOD:quickcheck(A(), [{max_shrinks,15}]))}).
+-define(PROP(A), {timeout, 45, ?_assert(?PROPMOD:quickcheck(A(), [{max_shrinks, 15}]))}).
 
 -define(LIGHT_WORK_FACTOR, 4).
 -define(MEDIUM_WORK_FACTOR, 9).

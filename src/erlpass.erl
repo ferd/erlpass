@@ -37,8 +37,8 @@ hash(Str, Factor) ->
 -spec match(password(), hash()) -> boolean().
 match(Pass, Hash) ->
     LHash = binary_to_list(Hash),
-    {ok,ResHash} = bcrypt:hashpw(format_pass(Pass), LHash),
-    verify_in_constant_time(LHash,ResHash).
+    {ok, ResHash} = bcrypt:hashpw(format_pass(Pass), LHash),
+    verify_in_constant_time(LHash, ResHash).
 
 %% @doc If a given {@link password(). password} matches a given
 %% {@link hash(). hash}, the password is re-hashed again using
