@@ -3,7 +3,14 @@ ifeq ($(REBAR),)
 REBAR=./rebar
 endif
 
-.PHONY: all compile doc clean distclean test get-deps get-test-deps
+.PHONY: all compile doc clean distclean test get-deps get-test-deps plt dialyze
+
+PLT_APPS?=erts kernel stdlib crypto compiler deps/bcrypt
+PLT_OPTS?=--verbose --statistics
+
+DIALYZER_WARNINGS?=-Werror_handling -Wrace_conditions -Wunmatched_returns
+DIALYZER_OPTS?=--verbose --statistics --no_native
+DIALYZER_DIRS?=ebin/
 
 all: compile doc test
 
@@ -29,3 +36,9 @@ clean:
 
 distclean: clean
 	@rm -rf $(CURDIR)/deps
+
+plt:
+	dialyzer $(PLT_OPTS) --build_plt --apps $(PLT_APPS)
+
+dialyze: compile
+	dialyzer $(DIALYZER_OPTS) $(DIALYZER_DIRS) $(DIALYZER_WARNINGS)
