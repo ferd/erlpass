@@ -7,13 +7,14 @@ A library to handle password hashing and changing in a safe manner, independent 
 
 ## Build Instructions ##
 
-Call `make compile`. If you have Rebar installed on your system, the installed version will be used instead of `./rebar`.
+Call `rebar3 compile`.
 
 ## How do I use this ##
 
 This library application depends on bcrypt (which in turn depends on crypto). You thus need to call `application:start(crypto)` and `application:start(bcrypt)` before being able to call the `erlpass` functions. The module has these two applications in its dependencies and it should be safe to use in releases. The possible calls are:
 
-    1> application:start(crypto), application:start(bcrypt), application:load(erlpass).
+    1> 1> application:ensure_all_started(erlpass).
+    {ok,[crypto, bcrypt,erlpass]}
     ok
     2> Hash = erlpass:hash("my voice is my password").
     <<"$2a$12$85jwhagKAzosjJeUktveYuh26e6xFySob5oIKkWdc27SNL3A443OG">>
@@ -45,7 +46,7 @@ This library uses the erlang-bcrypt port from the Smarkets team to work in a saf
 ## Other Dependencies ##
 You will need to have PropEr to run the tests. It's a fantastic testing library.
 
-You can run the tests with `make tests`.
+You can run the tests with `rebar3 eunit`.
 
 ## Authors ##
 
