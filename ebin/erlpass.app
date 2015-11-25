@@ -1,6 +1,0 @@
-{application,erlpass,
-             [{description,"Safely handle passwords with bcrypt and Erlang"},
-              {vsn,"1.0.1"},
-              {modules,[erlpass]},
-              {applications,[stdlib,kernel,bcrypt]},
-              {registered,[]}]}.

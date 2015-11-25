@@ -3,9 +3,9 @@
 *.swo
 *.beam
 *.dump
-deps/*
 doc/*.html
 doc/*.css
 doc/*.png
 doc/edoc-info
 .eunit/*
+_build/
