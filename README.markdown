@@ -1,6 +1,6 @@
 # Erlpass #
 
-A library to handle password hashing and changing in a safe manner, independent from any kind of storage whatsoever. The library is a thin wrapper around the [erlang-bcrypt library from opscode](https://github.com/chef/erlang-bcrypt), handling special cases such as unicode passwords, and forcing hashes in binary. Moreover, the library takes care of providing common operations such as matching passwords, changing the work factor of a hash, or changing a password as a whole.
+A library to handle password hashing and changing in a safe manner, independent from any kind of storage whatsoever. The library is a thin wrapper around the [erlang-bcrypt library from smarkets](https://github.com/smarkets/erlang-bcrypt), handling special cases such as unicode passwords, and forcing hashes in binary. Moreover, the library takes care of providing common operations such as matching passwords, changing the work factor of a hash, or changing a password as a whole.
 
 ## Current Status ##
 [![Build Status](https://travis-ci.org/ferd/erlpass.png)](https://travis-ci.org/ferd/erlpass)

@@ -9,3 +9,4 @@ doc/*.png
 doc/edoc-info
 .eunit/*
 _build/
+compile_commands.json
