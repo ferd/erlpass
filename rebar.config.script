@@ -1,0 +1,9 @@
+case erlang:function_exported(rebar3, main, 1) of
+    true -> % rebar3
+        CONFIG;
+    false -> % rebar 2.x or older
+        %% Rebuild deps
+        [{deps, [{bcrypt, ".*",
+            {git, "https://github.com/smarkets/erlang-bcrypt.git", {branch, "master"}}}]}
+         | lists:keydelete(deps, 1, CONFIG)]
+end.
