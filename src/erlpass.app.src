@@ -3,5 +3,9 @@
   {vsn, "1.0.4"},
   {modules, [erlpass]},
   {applications, [stdlib, kernel, bcrypt]},
-  {registered, []}
+  {registered, []},
+
+  {maintainers, ["Fred Hebert"]},
+  {licenses, ["MIT"]},
+  {links, [{"Github", "https://github.com/ferd/erlpass/"}]}
 ]}.
