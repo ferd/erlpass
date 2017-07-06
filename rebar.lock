@@ -1,4 +1,6 @@
-[{<<"bcrypt">>,
-  {git,"https://github.com/smarkets/erlang-bcrypt.git",
-       {ref,"a63df34d4957dbb70a703c67c75ed9fee2c78971"}},
-  0}].
+{"1.1.0",
+[{<<"bcrypt">>,{pkg,<<"bcrypt">>,<<"1.0.0">>},0}]}.
+[
+{pkg_hash,[
+ {<<"bcrypt">>, <<"1C0F76981D8A7B32E4DAA813408BFCA5BA8B1286196EB771F026D02C710F71C5">>}]}
+].
