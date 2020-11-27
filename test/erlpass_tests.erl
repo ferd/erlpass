@@ -12,6 +12,7 @@
 %% EUNIT TESTS
 setup() ->
     application:start(crypto),
+    application:start(poolboy),
     application:start(bcrypt).
 
 good_default_work_factor_test_() ->
