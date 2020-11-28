@@ -11,7 +11,7 @@ Call `rebar3 compile`.
 
 ## How do I use this ##
 
-This library application depends on bcrypt (which in turn depends on crypto). You thus need to call `application:start(crypto)` and `application:start(bcrypt)` before being able to call the `erlpass` functions. The module has these two applications in its dependencies and it should be safe to use in releases. The possible calls are:
+This library application depends on bcrypt (which in turn depends on crypto and poolboy). You thus need to call `application:start(crypto)`, `application:start(poolboy)`, and `application:start(bcrypt)` before being able to call the `erlpass` functions. The module has these three applications in its dependencies and it should be safe to use in releases. The possible calls are:
 
     1> 1> application:ensure_all_started(erlpass).
     {ok,[crypto, bcrypt,erlpass]}

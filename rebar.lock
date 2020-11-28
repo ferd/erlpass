@@ -1,6 +1,8 @@
 {"1.1.0",
-[{<<"bcrypt">>,{pkg,<<"bcrypt">>,<<"1.0.2">>},0}]}.
+[{<<"bcrypt">>,{pkg,<<"bcrypt">>,<<"1.1.2">>},0},
+ {<<"poolboy">>,{pkg,<<"poolboy">>,<<"1.5.2">>},1}]}.
 [
 {pkg_hash,[
- {<<"bcrypt">>, <<"6735F66D3A7309AF166CE660161009B7D9B9216508B8B2E6A0A9090AF35CB757">>}]}
+ {<<"bcrypt">>, <<"36C9F72EEFDB7736EA27260B5FE2D8694D4AAC9E17361EE566E5D71173EA3CA7">>},
+ {<<"poolboy">>, <<"392B007A1693A64540CEAD79830443ABF5762F5D30CF50BC95CB2C1AAAFA006B">>}]}
 ].
