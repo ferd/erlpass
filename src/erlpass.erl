@@ -5,12 +5,14 @@
 -export([hash/1, hash/2, match/2, change/3, change/4]).
 -define(DEFAULT_WORK_FACTOR, 12).
 
-%% @type password() = iodata(). A password, supports valid unicode.
 -type password() :: iodata().
-%% @type work_factor() = 4..31. Work factor of the bcrypt algorithm
+%% A password, supports valid unicode.
+
 -type work_factor() :: 4..31.
-%% @type hash() = binary(). The hashed password with a given work factor.
+%% Work factor of the bcrypt algorithm.
+
 -type hash() :: binary().
+%% The hashed password with a given work factor. 
 
 -export_type([password/0, work_factor/0, hash/0]).
 
@@ -44,7 +46,7 @@ match(Pass, Hash) ->
 %% {@link hash(). hash}, the password is re-hashed again using
 %% the new {@link work_factor(). work factor}. This allows to update a
 %% given work factor to something stronger.
-%% Equivalent to {@link change/4. <code>change(Pass, Hash, Pass, Factor)</code>}.
+%% @equiv change(Pass, Hash, Pass, Factor)
 -spec change(password(), hash(), work_factor()) -> hash() | {error, bad_password}.
 change(Pass, Hash, Factor) ->
     change(Pass, Hash, Pass, Factor).
